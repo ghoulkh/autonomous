@@ -1,0 +1,50 @@
+server:
+  port: 8080
+  tomcat:
+    threads:
+      max: 200
+    connection-timeout: 500000
+  servlet:
+    session:
+      timeout: 500000
+  jetty:
+    connection-idle-timeout: 500000
+  netty:
+    connection-timeout: 500000
+spring:
+  datasource:
+    url: jdbc:sqlserver://autonomous.database.windows.net:1433;database=autonomous;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
+    username: autonomous@autonomous
+    password: mhvEJI55
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 288474988857-6d7pmaj52tcjosi41j439h29sv2q50sa.apps.googleusercontent.com
+            client-secret: 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
+          facebook:
+            client-id: 1350896665750260
+            client-secret: 1ab3d808315d96dc7fc667e1b0f3350a
+  # ===============================
+  # = JPA configurations
+  # ===============================s
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServer2012Dialect
+
+security:
+  jwt:
+    token:
+      secret-key: secret-key
+
+app:
+  admin:
+    username: admin
+    password: admin
